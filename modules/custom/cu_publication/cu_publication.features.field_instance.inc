@@ -171,7 +171,7 @@ function cu_publication_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'smart_trim',
         'settings' => array(
-          'more_link' => 1,
+          'more_link' => 0,
           'more_text' => 'Read more »',
           'summary_handler' => 'full',
           'trim_length' => 50,
@@ -184,7 +184,7 @@ function cu_publication_field_default_field_instances() {
           'trim_type' => 'words',
         ),
         'type' => 'smart_trim_format',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'title' => array(
         'label' => 'hidden',
@@ -262,13 +262,9 @@ function cu_publication_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => 'content',
-          'image_style' => 'square',
-        ),
-        'type' => 'image',
-        'weight' => 0,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
       ),
       'title' => array(
         'label' => 'hidden',

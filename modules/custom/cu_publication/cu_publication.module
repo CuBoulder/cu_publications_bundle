@@ -212,6 +212,7 @@ function cu_publication_menu() {
       'page callback' => 'drupal_goto',
       'page arguments' => array($path),
     );
+
   } else {
     $items['issue/archive'] = array(
       'access callback' => TRUE,
@@ -219,6 +220,11 @@ function cu_publication_menu() {
       'page callback' => 'cu_publication_issue_archive',
     );
   }
+  $items['issue/list'] = array(
+    'access callback' => TRUE,
+    'title' => 'Archives',
+    'page callback' => 'cu_publication_issue_list',
+  );
   return $items;
 }
 /**
@@ -639,6 +645,30 @@ function cu_publication_issue_archive() {
   $output['articles'] = node_view_multiple($nodes, 'grid');
   $output['articles']['#weight'] = 99;
   $output['articles']['#prefix'] = '<div class="latest-issues">';
+  $output['articles']['#suffix'] = '</div>';
+  $output['pager'] = array(
+        '#theme' => 'pager',
+        '#tags' => array(),
+        '#weight' => 100.
+  );
+  return $output;
+}
+
+/**
+ * Page callback function for issue list
+ */
+function cu_publication_issue_list() {
+  $query = db_select('node', 'n');
+  $query->condition('n.type', 'issue', '=');
+  $query->condition('n.status', 1, '=');
+  $query->fields('n', array('nid', 'title'));
+  $query = $query->extend('PagerDefault')->limit(12);
+  $query->orderBy('created', 'DESC');
+  $nids = $query->execute()->fetchCol();
+  $nodes = node_load_multiple($nids);
+  $output['articles'] = node_view_multiple($nodes, 'teaser');
+  $output['articles']['#weight'] = 99;
+  $output['articles']['#prefix'] = '<div class="latest-issues-list">';
   $output['articles']['#suffix'] = '</div>';
   $output['pager'] = array(
         '#theme' => 'pager',

@@ -16,3 +16,5 @@ dependencies[] = list
 dependencies[] = options
 dependencies[] = strongarm
 dependencies[] = text
+
+bundle_cache_clear = 1

@@ -18,3 +18,4 @@ dependencies[] = strongarm
 dependencies[] = text
 
 bundle_cache_clear = 1
+bundle_group = 'addon_bundles'

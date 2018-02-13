@@ -65,6 +65,7 @@ function cu_publication_preprocess_node(&$vars) {
       $vars['content']['article_meta']['article_issue']['#markup'] = $markup;
       $vars['content']['article_meta']['article_issue']['#prefix'] = '<div class="article-meta-section article-meta-issue">';
       $vars['content']['article_meta']['article_issue']['#suffix'] = '</div>';
+      $vars['content']['article_meta']['article_issue']['#weight'] = -1000;
     }
   }
 }

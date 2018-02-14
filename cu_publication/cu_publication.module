@@ -60,7 +60,8 @@ function cu_publication_preprocess_node(&$vars) {
         $issue_node = node_load($result);
         $links[] = l($issue_node->title, 'node/' . $result);
       }
-      $markup = '<i class="fa fa-book"></i><span class="element-invisible">Issue:</span> ' . join(', ', $links);
+      $links = theme('item_list', array('items' => $links));
+      $markup = '<i class="fa fa-book"></i><span class="element-invisible">Issue:</span>' . $links;
 
       $vars['content']['article_meta']['article_issue']['#markup'] = $markup;
       $vars['content']['article_meta']['article_issue']['#prefix'] = '<div class="article-meta-section article-meta-issue">';

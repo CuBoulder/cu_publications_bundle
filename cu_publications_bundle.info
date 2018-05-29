@@ -1,9 +1,9 @@
-name = Publication
+name = CU Publications
 description = Create issues of articles.
 core = 7.x
 package = CU-Publications
 project = cu_publications_bundle
-version = 1.1
+version = 7.x-1.2
 project status url = https://github.com/CuBoulder/cu_publications_bundle
 
 dependencies[] = cu_publication

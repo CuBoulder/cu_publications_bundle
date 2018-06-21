@@ -1,10 +1,11 @@
 name = CU Publications
-description = Create issues of articles.
+description = Provides the ability to create magazine style issues from article content types, issue cover art, current issue and issue archive pages, and other specialty blocks.
 core = 7.x
 package = CU-Publications
 project = cu_publications_bundle
 version = 7.x-1.2
 project status url = https://github.com/CuBoulder/cu_publications_bundle
+project_demo_url = http://www.colorado.edu/webcentral/node/1212
 
 dependencies[] = cu_publication
 dependencies[] = cu_news_bundle
